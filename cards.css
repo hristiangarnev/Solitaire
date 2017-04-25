@@ -1,0 +1,194 @@
+body {
+    font-family: sans-serif;
+}
+body p {
+    text-align: center;
+}
+
+.playing-desk {
+    clear: both;
+    width: 390px;
+    height: 205px;
+    margin: 0 auto;
+}
+
+#deck {
+    width: 195px;
+    height: 195px;
+    position: relative;
+    float: left;
+}
+
+#ready {
+    width: 195px;
+    min-height: 195px;
+    position: relative;
+    float: left;
+}
+
+#ready .card {
+    left: 0 !important;
+}
+
+#ready p {
+    position: absolute;
+    z-index: -3;
+}
+
+.controls {
+    overflow: auto;
+    clear: both;
+    width: 390px;
+    margin: 0 auto;
+}
+
+#change,
+#undo,
+#refresh {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    line-height: 25px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#change:before,
+#undo:before,
+#refresh:before {
+    font-size: 25px;
+    vertical-align: top;
+}
+
+#ready .container {
+    z-index: -1;
+    left: 0;
+    top: auto;
+    margin-top: 5px;
+}
+
+.container {
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container:last-child {
+    z-index: 10;
+}
+
+.container.flipped .card {
+    transition-duration: 0.4s;
+    transform: rotateY(0);
+    cursor: move;
+    transition-timing-function: cubic-bezier(0.18, 0.89, 0.35, 1.27);
+}
+
+.container.flipped.draggable .card .back {
+    display: none;
+}
+
+.card {
+    transform: rotateY(180deg);
+    border-radius: 5px;
+    border: 1px solid #666;
+    width: 120px;
+    height: 195px;
+    background: white;
+    position: absolute;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.back {
+    background-color: #db160f;
+    background-image: url('images/argyle.png');
+    background-size: contain;
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.card.K {
+    background: url('images/king.gif') no-repeat center center white;
+}
+
+.card.Q {
+    background: url('images/queen.gif') no-repeat center center white;
+}
+
+.card.J {
+    background: url('images/jack.gif') no-repeat center center white;
+}
+
+.card.K .spotB1,
+.card.K .spotB3,
+.card.K .spotB5,
+.card.J .spotB1,
+.card.J .spotB3,
+.card.J .spotB5,
+.card.Q .spotB1,
+.card.Q .spotB3,
+.card.Q .spotB5 {
+    display: none;
+}
+
+.index {
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 0.25em;
+    top: 0.25em;
+    font-size: 20px;
+}
+
+.spotB3 {
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    font-size: 30px;
+}
+
+.hearts,
+.diams {
+    color: red;
+}
+
+.spades,
+.clubs {
+    color: #000;
+}
+
+.spotB3 + .index {
+    top: auto;
+    left: auto;
+    bottom: 0.25em;
+    right: 0.25em;
+}

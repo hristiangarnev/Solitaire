@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="" href="cards.css">
+    <script src="cards.js"></script>
+    <link rel="stylesheet" type="" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cards</title>
+</head>
+<body>
+    <p>Целта на играта е да се съберат в колона картите 1,2,3,4,5,6,7,8,9,10,J,Q,K,A</p>
+
+    <div class="controls">
+        <a href="#" id="change" class="fa fa-repeat">Нова карта</a>
+        <a href="#" id="undo" class="fa fa-undo">Предишна карта</a>
+        <a href="#" id="refresh" class="fa fa-refresh">Раздай</a>
+    </div>
+
+    <div class="playing-desk">
+        <div id="deck"></div>
+        <div id="ready" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Редете картите тук</p>
+        </div>
+    </div>
+</body>
+</html>
